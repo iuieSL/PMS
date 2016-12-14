@@ -1,0 +1,107 @@
+package com.sl.pms.entity;
+
+import java.util.List;
+
+/**
+ * 分页组件
+ * 
+ * @author 莉
+ * 
+ */
+public class Page<T> {
+
+	private int pageSize; // 每页的数据数量
+
+	private long count; // 一共的数据数量
+
+	private List<T> result;
+
+	private int pageCount; // 一共有多少页
+	
+	private int currenPage; //当前页数
+	
+	private int prePage; //上一页
+	
+	private int nextPage;  //下一页
+	
+	private int nextData; //下一个数据
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public long getCount() {
+		return count;
+	}
+
+	public void setCount(long count) {
+		this.count = count;
+	}
+
+	public List<T> getResult() {
+		return result;
+	}
+
+	public void setResult(List<T> result) {
+		this.result = result;
+	}
+
+	/**
+	 * 计算一共有多少页
+	 * @return
+	 */
+	public long getPageCount() {
+		if(count%pageSize==0) this.pageCount=(int) (count/pageSize);
+		else this.pageCount=(int) (count/pageSize+1);
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
+
+	public int getCurrenPage() {
+		return currenPage;
+	}
+
+	public void setCurrenPage(int currenPage) {
+		this.currenPage = currenPage;
+	}
+
+	public int getPrePage() {
+		if(this.currenPage>=2) return this.currenPage-1;
+		return 1;
+	}
+
+	public void setPrePage(int prePage) {
+		this.prePage = prePage;
+	}
+
+	public int getNextPage() {
+		if(this.currenPage<this.pageCount) return this.currenPage+1;
+		return  this.pageCount;
+	}
+
+	public void setNextPage(int nextPage) {
+		this.nextPage = nextPage;
+	}
+
+	public int getNextData() {
+		if(this.currenPage==1) return 0;
+	    if((this.currenPage*this.pageSize+1)<this.count)
+		return this.currenPage*this.pageSize+1;
+	    
+	    return 0;
+	}
+
+	public void setNextData(int nextData) {
+		this.nextData = nextData;
+	}
+	
+	
+   
+}

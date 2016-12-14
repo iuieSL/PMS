@@ -1,0 +1,87 @@
+package com.sl.pms.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sl.pms.dao.PrivilegeDao;
+import com.sl.pms.entity.Page;
+import com.sl.pms.entity.Privilege;
+import com.sl.pms.service.PrivilegeService;
+
+@Service
+public class PrivilegeServiceImpl implements PrivilegeService{
+	
+	@Autowired
+	private PrivilegeDao privilegeDao;
+
+	@Override
+	public boolean insert(Privilege privilege) {
+		 if(privilegeDao.findbyObject(privilege).size()>0)
+		  return false;
+		 else{
+			 privilegeDao.insert(privilege);
+			 return true;
+		 }
+	}
+
+	@Override
+	public List<Privilege> findAllPrivilege(Privilege p) {
+		// TODO Auto-generated method stub
+		return privilegeDao.findAll(p) ;
+	}
+
+	@Override
+	public boolean delete(Privilege p) {
+		 this.privilegeDao.delete(p);
+		 if(privilegeDao.findbyObject(p).size()>0){
+			 return false;
+		 }else{
+			 return true;
+		 }
+	}
+
+	@Override
+	public int count(Privilege p) {
+		return  this.privilegeDao.count(p);
+	}
+
+	@Override
+	public boolean batchDelete(List<Privilege> list) {
+		List<Integer> ids=new ArrayList<>();
+		for(Privilege p:list){
+			ids.add(p.getId());
+		}
+	    this.privilegeDao.batchDelete(ids,new Privilege());
+	    for(Privilege p:list){
+	    	if(this.privilegeDao.findbyObject(p).size()>0)  return false;
+	    }
+		return true;
+	}
+
+	@Override
+	public Privilege findById(int id) {
+		return this.privilegeDao.findById(new Privilege() , id);
+	}
+
+	@Override
+	public boolean update(Privilege privilege) {
+		 this.privilegeDao.update(privilege);
+		 if(this.privilegeDao.findbyObject(privilege).size()==1) return true;
+		return false;
+	}
+
+	@Override
+	public List<Privilege> searchByName(String name) {
+		return this.privilegeDao.findByName(name);
+	}
+
+	@Override
+	public Page<Privilege> findAllPage(Page<Privilege> page) {
+		return this.privilegeDao.findAllPage(new Privilege(), page);
+	}
+
+	
+}

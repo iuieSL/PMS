@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/dao/impl
+END
+RoleDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/dao/impl/RoleDaoImpl.java
+END
+UserDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/dao/impl/UserDaoImpl.java
+END
+BaseDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/dao/impl/BaseDaoImpl.java
+END
+PrivilegeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/dao/impl/PrivilegeDaoImpl.java
+END

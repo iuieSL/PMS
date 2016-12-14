@@ -1,0 +1,31 @@
+10
+
+dir
+10
+http://lingju.iuie.pub:8080/repos/shuli-pms/PMS/src/com/sl
+http://lingju.iuie.pub:8080/repos/shuli-pms
+
+
+
+2016-11-21T04:51:56.348408Z
+3
+shuli
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce3dc1fd-7761-4678-ab3b-de37aac32dd3
+
+pms
+dir
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/entity
+END
+Page.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/entity/Page.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/entity/User.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/entity/Role.java
+END
+Privilege.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shuli-pms/!svn/ver/3/PMS/src/com/sl/pms/entity/Privilege.java
+END

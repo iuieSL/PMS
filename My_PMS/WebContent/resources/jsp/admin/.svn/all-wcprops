@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin
+END
+admin-role-add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin/admin-role-add.jsp
+END
+admin-permission-update.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin/admin-permission-update.jsp
+END
+admin-permission.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/shuli-pms/!svn/ver/5/PMS/WebContent/resources/jsp/admin/admin-permission.jsp
+END
+admin-permission-add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin/admin-permission-add.jsp
+END
+admin-add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shuli-pms/!svn/ver/4/PMS/WebContent/resources/jsp/admin/admin-add.jsp
+END
+admin-role.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin/admin-role.jsp
+END
+article-list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shuli-pms/!svn/ver/6/PMS/WebContent/resources/jsp/admin/article-list.jsp
+END

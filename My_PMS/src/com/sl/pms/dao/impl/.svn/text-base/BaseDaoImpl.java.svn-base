@@ -1,0 +1,103 @@
+package com.sl.pms.dao.impl;
+
+ 
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.sl.pms.dao.BaseDao;
+import com.sl.pms.entity.Page;
+
+@Repository
+public class BaseDaoImpl<T> implements BaseDao<T>{
+	
+ 
+	@Autowired
+   private SessionFactory sessionFactory;
+	
+ 	@Override
+	public void insert(T t) {
+ 		sessionFactory.openSession().save(t);
+	}
+
+	@Override
+	public List<T> findAll(T t) {
+		Class c = t.getClass();
+		String name = c.getSimpleName();
+		String hql = "from " + name;
+
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		List<T> result = query.list();
+		session.close();
+		return result;
+
+	}
+
+	@Override
+	public void delete(T t) {
+		Session session=sessionFactory.openSession();
+		session.delete(t);
+		session.flush();
+		session.close();
+	}
+
+	@Override
+	public int count(T t) {
+		Session session=sessionFactory.openSession();
+		String hql="select count(1) from "+t.getClass().getSimpleName();
+		Query query=session.createQuery(hql);
+		int count=(int) query.uniqueResult();
+		session.close();
+		return count;
+	}
+
+    /**
+     * 批量删除(hql拼接)
+     */
+	@Override
+	public void batchDelete(List<Integer> list,T t) {
+		Session session = sessionFactory.openSession();
+		StringBuilder hql=new StringBuilder( "delete from "+t.getClass().getSimpleName()+" where id in (:ids)");
+	    Query q= session.createQuery(hql.toString()).setParameterList("ids", list);
+	    q.executeUpdate();
+		session.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public T findById(T t,int id){
+		Session session=sessionFactory.openSession();
+	   Object object= session.get(t.getClass(), id);
+	    if(object!=null&&!object.equals("")){
+	    	session.close();
+	    	return (T)object;
+	    }
+	    session.close();
+		return null;
+	}
+
+	@Override
+	public void update(T t) {
+		Session session=sessionFactory.openSession();
+		session.saveOrUpdate(t);
+		session.flush();
+		session.close();
+		
+	}
+
+	@Override
+	public Page<T> findAllPage(T t, Page<T> page) {
+		 page.setCount(this.count(t));
+		 Session session=sessionFactory.openSession();
+		 String hql="from"+t.getClass().getSimpleName();
+		 List<T> result= session.createQuery(hql).setFirstResult(page.getNextData()).setMaxResults(page.getPageSize()).list();
+		 page.setResult(result);
+		 return page;
+	}
+
+}
